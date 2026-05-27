@@ -1,0 +1,26 @@
+{
+  "name": "git-commit-format",
+  "owner": {
+    "name": "Kuroome",
+    "url": "https://github.com/KanoCifer"
+  },
+  "metadata": {
+    "description": "Claude Code 技能集合",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "git-commit-format",
+      "source": "./",
+      "description": "用 Conventional Commits 格式生成 Git 提交信息",
+      "version": "0.1.0",
+      "author": {
+        "name": "Kuroome"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/KanoCifer/git-commit-format",
+      "category": "git",
+      "tags": ["git", "commit", "conventional-commits"]
+    }
+  ]
+}
