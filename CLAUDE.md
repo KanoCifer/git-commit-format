@@ -21,4 +21,3 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 
 常用 type：`feat` | `fix` | `refactor` | `docs` | `chore` | `style`
-Scope 为技能名称，如 `git-commit-format`

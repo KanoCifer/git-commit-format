@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Git Commit Format",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "plugins": [
     {
       "name": "git-commit-format",
       "source": "./",
       "description": "用 Conventional Commits 格式生成 Git 提交信息",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "Kuroome"
       },

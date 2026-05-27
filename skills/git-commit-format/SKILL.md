@@ -63,6 +63,7 @@ git log --oneline -10
 - 非显而易见的 _why_（"为什么要这么做"）
 - Breaking changes、migration notes
 - 关联 issue（`Closes #42`、`Refs #17`）
+- 通过 `- ` 前缀添加额外信息
 
 正文每行 wrap at 72 chars，正文和标题之间空一行。
 
@@ -85,20 +86,23 @@ git log --oneline -10
 
 ## Step 5：展示 Preview
 
-执行后，按此结构展示：
+执行后，严格按此结构展示, 仅输出Preview内容：
 
 ```
 提交预览（Committing to <分支名>）
 
+提交信息：
+feat(api): add pagination support for book list
+
+  - 具体实现了什么功能
+  - 做了哪些重要改动
+
 变更文件：
 • src/file_a.ts    (+10/-2)
 • src/file_b.ts    (+5/-0)
-
-提交信息：
-feat(api): add pagination support for book list
-  - 具体实现了什么功能
-  - 做了哪些重要改动
 ```
+
+如为`仅预览模式`，输出后使用`AskUserQuestion`询问用户是否提交/推送
 
 ## 参考
 

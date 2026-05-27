@@ -40,11 +40,11 @@ chore(deps): bump axios to 1.6.0
 ```
 feat(api): add rate limiting to public endpoints
 
-Requests exceeding 100/min per IP receive 429 responses.
+- Requests exceeding 100/min per IP receive 429 responses.
 This protects the upstream billing service from being overwhelmed
 during traffic spikes.
 
-BREAKING CHANGE: unauthenticated requests now share a global rate
+- BREAKING CHANGE: unauthenticated requests now share a global rate
 limit of 100/min. Previously there was no limit.
 ```
 
@@ -53,7 +53,7 @@ limit of 100/min. Previously there was no limit.
 ```
 fix(frontend): correct date picker timezone offset
 
-The date picker was using local timezone instead of UTC,
+- The date picker was using local timezone instead of UTC,
 causing off-by-one errors for users in negative UTC offsets.
 
 Closes #342
