@@ -1,14 +1,11 @@
 {
   "name": "git-commit-format",
   "description": "用Conventional Commits格式生成 Git 提交信息",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Kuroome"
   },
   "license": "MIT",
   "homepage": "https://github.com/KanoCifer/git-commit-format",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/KanoCifer/git-commit-format"
-  }
+  "repository": "https://github.com/KanoCifer/git-commit-format"
 }

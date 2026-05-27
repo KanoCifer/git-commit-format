@@ -4,17 +4,20 @@
 
 ## 安装
 
-### 本地安装
-
 ```bash
-claude plugins install kanocifer/git-commit-format
+# 添加市场
+claude plugins marketplace add KanoCifer/git-commit-format
+
+# 安装插件
+claude plugins install git-commit-format@git-commit-format
 ```
 
-或放入 `~/.claude/plugins/` 目录。
+或在claude对话框里安装
 
-### 上传到 Claude.ai
-
-将整个目录压缩为 zip，在 Settings > Capabilities > Skills 中上传。
+```
+/plugins marketplace add KanoCifer/git-commit-format
+/plugins install git-commit-format@git-commit-format
+```
 
 ## 使用
 

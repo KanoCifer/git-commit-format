@@ -5,15 +5,15 @@
     "url": "https://github.com/KanoCifer"
   },
   "metadata": {
-    "description": "Claude Code 技能集合",
-    "version": "0.1.0"
+    "description": "Git Commit Format",
+    "version": "0.1.1"
   },
   "plugins": [
     {
       "name": "git-commit-format",
       "source": "./",
       "description": "用 Conventional Commits 格式生成 Git 提交信息",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Kuroome"
       },
