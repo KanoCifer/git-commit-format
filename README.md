@@ -15,11 +15,21 @@ claude plugins install git-commit-format@git-commit-format
 或在claude对话框里安装
 
 ```
-/plugins marketplace add KanoCifer/git-commit-format
-/plugins install git-commit-format@git-commit-format
+/plugin marketplace add KanoCifer/git-commit-format
+/plugin install git-commit-format@git-commit-format
+```
+
+### 其他安装方式（其他agents）
+
+将prompt发送给你的agent
+
+```
+帮我安装这个skill：https://github.com/KanoCifer/git-commit-format
 ```
 
 ## 使用
+
+完成开发后
 
 ```
 /git-commit-format:git-commit-format       # 仅生成 commit message 预览
