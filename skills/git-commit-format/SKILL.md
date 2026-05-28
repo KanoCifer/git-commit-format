@@ -4,13 +4,7 @@ description: >
   Generate concise, accurate Git commit messages using Conventional Commits format.
   Use when the user modifies code in a git workflow, after git add, ready to commit, or says "写 commit", "generate commit message", "write commit", "commit message", "提交代码", "commit", "生成提交信息", "帮我提交".
 argument-hint: [v(view)|c(commit)|p(push)]
-context: fork
 allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
-license: MIT
-model: inherit
-metadata:
-  author: Kuroome
-  version: 1.1.0
 ---
 
 ## Git 上下文（自动注入）
@@ -89,7 +83,29 @@ metadata:
 
 ## 展示 Preview
 
-将上方注入的 git 上下文（branch、diff_stat、diff、log）及当前模式，严格按 `references/output-format.md` 格式输出 preview，不得添加模板外的任何文本。
+严格按以下格式输出，不得添加模板外的任何文本：
+
+```
+提交预览（Committing to <branch>）
+
+提交信息：
+<type>(<scope>): <summary>
+
+  - <body line 1>
+  - <body line 2>
+
+变更文件：
+• <file>    (+N/-N)
+• <file>    (+N/-N)
+```
+
+**格式规则：**
+
+- **提交信息**：必填，格式 `<type>(<scope>): <imperative summary>`，scope 仅单模块时出现
+- **正文**：仅在标题无法完整表达时展示（breaking change、非显而易见的 why、关联 issue）。每行以 `  -` 开头（两空格 + 连字符 + 空格），正文与标题空一行，≤3 行
+- **变更文件**：必填，格式 `• <relative-path>    (+N/-N)`，文件数 >15 时展示前 15 个 + `... 及 N 个其他文件`
+
+**禁止输出：** 开头引导语（`已为您生成`、`以下是`）、结尾确认语（`是否确认提交？`）、解释说明、模型署名、emoji
 
 ## 参考
 

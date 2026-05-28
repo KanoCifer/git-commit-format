@@ -1,7 +1,7 @@
 {
   "name": "git-commit-format",
   "description": "用Conventional Commits格式生成 Git 提交信息",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "author": {
     "name": "Kuroome"
   },
