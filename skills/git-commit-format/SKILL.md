@@ -24,8 +24,8 @@ allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
 
 根据 `$ARGUMENTS` 决定：
 
-- `c` / `commit` / `--commit`：生成 message → 询问确认 → 执行 `git commit`
-- `p` / `push` / `--push`：检查 CI → 生成 message → 确认 → commit → `git push`
+- `c` / `commit` / `--commit`：生成 message → 直接执行 `git commit`（跳过确认）
+- `p` / `push` / `--push`：检查 CI → 生成 message → 直接执行 commit → `git push`（跳过确认）
 - 空 / `v` / `view`：仅生成 message 展示预览，不自动执行
 
 ## 分支名审查
@@ -73,9 +73,9 @@ allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
 
 ## 执行
 
-- **默认模式**：展示后等待确认/修改，不做提交，使用`AskUserQuestion`工具询问是否提交或提交并推送
-- **`--commit`/自动提交**：执行 `git commit -m "..."`（有正文用 heredoc），然后 `git status` 确认
-- **`--push`/提交并推送**：
+- **默认模式**：展示预览后使用 `AskUserQuestion` 工具询问是否确认提交或提交并推送
+- **`--commit`/自动提交**：生成 message 后直接执行 `git commit -m "..."`（有正文用 heredoc），跳过询问确认，然后 `git status` 确认
+- **`--push`/提交并推送**：生成 message 后直接执行以下步骤，跳过询问确认：
   1. 检查是否有远程跟踪分支：`git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null`
   2. 如果有远程且安装了 `gh` CLI，检查 CI 状态：`gh run view --branch <branch> --limit 1 --json status,conclusion`
   3. CI 失败时暂停并警告
