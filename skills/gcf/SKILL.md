@@ -1,8 +1,7 @@
 ---
 name: gcf
 description: >
-  Generate concise, accurate Git commit messages using Conventional Commits format.
-  Use when the user modifies code in a git workflow, after git add, ready to commit, or says "写 commit", "generate commit message", "write commit", "commit message", "提交代码", "commit", "生成提交信息", "帮我提交".
+  Generate concise, accurate Git commit messages.This skill should be used when the user modifies code in a git workflow, ready to commit, or says "commit", "generate commit message", "write commit", "commit message", "提交", "commit", "生成提交信息"
 argument-hint: [v(view)|c(commit)|p(push)]
 allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
 ---
