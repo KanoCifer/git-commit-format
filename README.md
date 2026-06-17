@@ -9,14 +9,14 @@
 claude plugins marketplace add KanoCifer/git-commit-format
 
 # 安装插件
-claude plugins install git-commit-format@git-commit-format
+claude plugins install gcf@git-commit-format
 ```
 
 或在claude对话框里安装
 
 ```
 /plugin marketplace add KanoCifer/git-commit-format
-/plugin install git-commit-format@git-commit-format
+/plugin install gcf@git-commit-format
 ```
 
 ### 其他安装方式（其他agents）
@@ -32,9 +32,9 @@ claude plugins install git-commit-format@git-commit-format
 完成开发后
 
 ```
-/git-commit-format:git-commit-format       # 仅生成 commit message 预览
-/git-commit-format:git-commit-format c     # 生成并自动 git commit
-/git-commit-format:git-commit-format p     # 生成、commit 并 git push
+/gcf:gcf       # 仅生成 commit message 预览
+/gcf:gcf c     # 生成并自动 git commit
+/gcf:gcf p     # 生成、commit 并 git push
 ```
 
 或自动触发：在 git 工作流中修改代码后说"写 commit"。
@@ -50,10 +50,8 @@ git-commit-format/
 ├── .claude-plugin/
 │   └── plugin.json
 ├── skills/
-│   └── git-commit-format/
-│       ├── SKILL.md
-│       └── references/
-│           └── commit-types.md
+│   └── gcf/
+│       └── SKILL.md
 ├── README.md
 └── LICENSE
 ```

@@ -1,19 +1,19 @@
 {
-  "name": "git-commit-format",
+  "name": "gcf",
   "owner": {
     "name": "Kuroome",
     "url": "https://github.com/KanoCifer"
   },
   "metadata": {
     "description": "Git Commit Format",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "plugins": [
     {
-      "name": "git-commit-format",
+      "name": "gcf",
       "source": "./",
       "description": "用 Conventional Commits 格式生成 Git 提交信息",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "author": {
         "name": "Kuroome"
       },
