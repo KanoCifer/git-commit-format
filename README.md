@@ -9,14 +9,14 @@
 claude plugins marketplace add KanoCifer/git-commit-format
 
 # 安装插件
-claude plugins install gcf@git-commit-format
+claude plugins install gcf@gcf
 ```
 
 或在claude对话框里安装
 
 ```
 /plugin marketplace add KanoCifer/git-commit-format
-/plugin install gcf@git-commit-format
+/plugin install gcf@gcf
 ```
 
 ### 其他安装方式（其他agents）
@@ -48,7 +48,7 @@ claude plugins install gcf@git-commit-format
 ```
 git-commit-format/
 ├── .claude-plugin/
-│   └── plugin.json
+│   └── marketplace.json
 ├── skills/
 │   └── gcf/
 │       └── SKILL.md
