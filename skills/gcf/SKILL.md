@@ -1,9 +1,9 @@
 ---
 name: gcf
-description: >
-  Generate concise, accurate commit messages.This skill should be used when the user modifies code in a git workflow, ready to commit, or says "commit", "generate commit message", "write commit", "commit message", "提交", "commit", "生成提交信息"
+description: Generate concise, accurate commit messages using Conventional Commits format.
 argument-hint: [v(view)|c(commit)|p(push)]
 allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
+disable-model-invocation: true
 ---
 
 ## 流程

@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Git Commit Format",
-    "version": "2.0.0"
+    "version": "2.0.1"
   },
   "plugins": [
     {
       "name": "gcf",
       "source": "./",
       "description": "用 Conventional Commits 格式生成 Git 提交信息",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": {
         "name": "Kuroome"
       },
