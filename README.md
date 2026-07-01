@@ -4,6 +4,8 @@
 
 ## 安装
 
+### 方式一：Claude Code 插件市场（推荐）
+
 ```bash
 # 添加市场
 claude plugins marketplace add KanoCifer/git-commit-format
@@ -12,16 +14,27 @@ claude plugins marketplace add KanoCifer/git-commit-format
 claude plugins install gcf@gcf
 ```
 
-或在claude对话框里安装
+或在 claude 对话框里安装
 
 ```
 /plugin marketplace add KanoCifer/git-commit-format
+# 需要分两次输入
 /plugin install gcf@gcf
 ```
 
-### 其他安装方式（其他agents）
+### 方式二：npx skills（跨 Agent 安装）
 
-将prompt发送给你的agent
+支持 70+ 编码 Agent（Claude Code、Codex、Cursor 等）：
+
+```bash
+
+# 交互式安装
+npx skills add KanoCifer/git-commit-format
+```
+
+### 方式三：其他 Agents
+
+将下面的 prompt 发送给你的 agent：
 
 ```
 帮我安装这个skill：https://github.com/KanoCifer/git-commit-format
