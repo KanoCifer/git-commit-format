@@ -4,6 +4,7 @@ description: Generate concise, accurate commit messages using Conventional Commi
 argument-hint: [v(view)|c(commit)|p(push)]
 allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
 disable-model-invocation: true
+context: fork
 ---
 
 ## 流程
