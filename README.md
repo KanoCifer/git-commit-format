@@ -42,15 +42,13 @@ npx skills add KanoCifer/git-commit-format
 
 ## 使用
 
-完成开发后
+完成开发后手动调用
 
 ```
 /gcf:gcf       # 仅生成 commit message 预览
 /gcf:gcf c     # 生成并自动 git commit
 /gcf:gcf p     # 生成、commit 并 git push
 ```
-
-或自动触发：在 git 工作流中修改代码后说"写 commit"。
 
 ## 概述
 
