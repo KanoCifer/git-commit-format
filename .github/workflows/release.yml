@@ -1,0 +1,62 @@
+name: Release Skills
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package plugin
+        run: |
+          mkdir -p dist
+          cd dist
+          zip -r skills.zip \
+            ../skills/
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          cat > dist/release-notes.md << 'EOF'
+          ## Release ${{ github.ref_name }}
+
+          ### Included Skills
+          EOF
+          for skill in skills/*/; do
+            name=$(basename "$skill")
+            desc=$(grep -m1 'description:' "$skill/SKILL.md" | sed 's/^description: //' || echo "$name")
+            echo "- **${name}**: ${desc}" >> dist/release-notes.md
+          done
+          cat >> dist/release-notes.md << 'EOF'
+
+          ### Installation
+
+          ```bash
+          claude plugins marketplace add KanoCifer/git-commit-format
+          claude plugins install gcf@gcf
+          ```
+
+          ### What's Changed
+          EOF
+          # Append git log since last tag if available
+          PREV_TAG=$(git tag --sort=-creatordate | head -2 | tail -1 || true)
+          if [ -n "$PREV_TAG" ]; then
+            echo "" >> dist/release-notes.md
+            git log --oneline --no-decorate "$PREV_TAG..${{ github.ref_name }}" 2>/dev/null \
+              | sed 's/^/- /' >> dist/release-notes.md
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/skills.zip
+          body_path: dist/release-notes.md
+          draft: false
+          prerelease: false

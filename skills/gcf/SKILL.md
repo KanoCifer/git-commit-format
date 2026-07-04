@@ -2,40 +2,38 @@
 name: gcf
 description: Generate concise, accurate commit messages using Conventional Commits format. Use when the user invokes `/gcf`.
 argument-hint: [v(view)|c(commit)|p(push)]
-allowed-tools: Bash(git *), Bash(gh *), AskUserQuestion
-disable-model-invocation: true
-context: fork
+allowed-tools: Bash(git *), AskUserQuestion
 ---
 
 ## 流程
 
-1. 读取 `git branch --show-current` 获取分支名
-2. 读取 `git diff --cached --stat` 和 `git diff --cached` 获取暂存区变更
-3. 读取 `git log -5 --oneline` 获取最近5条提交历史作为风格参考
-4. 如果暂存区为空(无输出):尝试 `git add -A`(仅已跟踪文件),再次检查;仍为空则告知用户无变更并退出
+1. **理解变更**：从对话上下文或暂存区中了解本次变更的内容和意图
+2. 如果信息不足（用户只说"/gcf"但没描述改了什么），`git add -A` 并检查暂存区修改来生成。
+3. 生成 Conventional Commits 格式的提交信息
+4. 按行为模式处理后续操作
 
 ## 行为模式
 
-- `c`/`--commit`:生成 message → 直接 `git commit`(跳过确认)
-- `p`/`--push`:生成 message → `git commit` → `git push`(跳过确认)
-- 默认模式(空/`v`):展示 preview 后用 `AskUserQuestion` 询问:提交 / 提交并推送 / 取消
+- `c`/`--commit`：生成 message → 执行 `git commit`
+- `p`/`--push`：生成 message → `git commit` → `git push`
+- 默认模式（空/`v`）：展示 preview 后用 `AskUserQuestion` 询问：提交 / 提交并推送 / 取消
 
 ## Commit Message
 
-基于暂存区 diff 实际内容生成。标题已说明清楚则跳过正文。
+根据用户描述的变更内容生成。标题已说明清楚则跳过正文。
 
-**标题**: `<type>(<scope>): <imperative summary>`,≤50 chars(hard cap 72),全小写,不加句点
+**标题**：`<type>(<scope>): <imperative summary>`，≤50 chars（hard cap 72），全小写，不加句点
 
-- Type: `feat`/`fix`/`refactor`/`perf`/`docs`/`test`/`chore`/`build`/`ci`/`style`/`revert`
-- Scope: 单模块用目录名(`api`、`frontend`、`config`);多模块或不确定时省略
+- Type：`feat` / `fix` / `refactor` / `perf` / `docs` / `test` / `chore` / `build` / `ci` / `style` / `revert`
+- Scope：单模块用目录名（`api`、`frontend`、`config`）；多模块或不确定时省略
 
-**正文**(仅必要时: breaking change、非显而易见的 why、`Closes #42`):每行 wrap 72,与标题空一行
+**正文**（仅必要时：breaking change、非显而易见的 why、`Closes #42`）：每行 wrap 72，与标题空一行
 
-**禁止**: 非祈使语气(`added`/`adds`)、AI 署名、emoji、`As requested by` 来源标记
+**禁止**：非祈使语气（`added`/`adds`）、AI 署名、emoji、`As requested by` 来源标记
 
 ## 输出格式
 
-严格按此输出,禁止额外信息:
+严格按此输出，禁止额外信息：
 
 ```
 提交预览 (Committing to <branch>)
@@ -51,7 +49,7 @@ context: fork
 
 ## 示例
 
-输入: 暂存区有 `src/auth/login.py` 新增 JWT 验证函数
+用户描述：/gcf
 
 ```
 提交预览 (Committing to main)
